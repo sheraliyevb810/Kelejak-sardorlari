@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d1b">
+<meta name="description" content="286-maktab 6-A sinf Kelajak Sardorlari jamoasi.">
+<title>KELAJAK SARDORLARI | 286-maktab</title>
+
+<style>
+:root {
+  --bg: #080d1b;
+  --card: #111a2e;
+  --blue: #3978ff;
+  --gold: #f5c76b;
+  --text: #f5f7ff;
+  --muted: #a5b0c8;
+  --border: #26334c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+.container { width: min(1120px, 91%); margin: auto; }
+header {
+  position: sticky; top: 0; z-index: 10;
+  background: #080d1bf2;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+}
+.nav {
+  min-height: 72px; display: flex;
+  align-items: center; justify-content: space-between; gap: 16px;
+}
+.logo { font-weight: 900; letter-spacing: 1px; }
+.logo span { color: var(--gold); }
+nav { display: flex; flex-wrap: wrap; gap: 18px; }
+nav a { color: var(--muted); font-size: 14px; }
+nav a:hover { color: var(--gold); }
+.menu { display: none; }
+.hero {
+  min-height: 490px; display: grid; place-items: center;
+  text-align: center; padding: 80px 0;
+  background:
+    radial-gradient(ellipse at 50% 10%, #254b8b55, transparent 60%),
+    linear-gradient(180deg, #0b1428, var(--bg));
+}
+.badge {
+  display: inline-block; border: 1px solid #f5c76b66;
+  border-radius: 30px; padding: 7px 15px;
+  color: var(--gold); font-size: 13px; margin-bottom: 22px;
+}
+h1 { font-size: clamp(35px, 7vw, 68px); line-height: 1.08; }
+h1 span { color: var(--gold); }
+.hero p { color: var(--muted); max-width: 650px; margin: 22px auto; }
+.btn {
+  display: inline-block; border: 0; border-radius: 10px;
+  background: var(--blue); color: white; padding: 12px 20px;
+  cursor: pointer; font-weight: bold;
+}
+.btn:hover { filter: brightness(1.15); }
+.btn.secondary { background: transparent; border: 1px solid var(--border); }
+section { padding: 76px 0; }
+.section-head { text-align: center; margin-bottom: 35px; }
+.section-head h2 { font-size: clamp(26px, 4vw, 38px); }
+.section-head p { color: var(--muted); margin-top: 8px; }
+.gold { color: var(--gold); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card {
+  background: linear-gradient(145deg, #141f36, #0d1425);
+  border: 1px solid var(--border); border-radius: 18px;
+  padding: 23px; transition: .2s;
+}
+.card:hover { transform: translateY(-4px); border-color: #507ed0; }
+.icon { font-size: 30px; margin-bottom: 12px; }
+.card h3 { margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 14px; }
+.about { background: #0b1222; }
+.leader-top { display: flex; align-items: center; gap: 14px; margin-bottom: 15px; }
+.avatar {
+  width: 55px; height: 55px; flex-shrink: 0;
+  display: grid; place-items: center; border-radius: 16px;
+  background: #20345a; color: var(--gold); font-weight: 900; font-size: 19px;
+}
+.role { font-size: 12px; color: var(--gold); }
+.search {
+  display: block; width: min(500px, 100%); margin: 0 auto 25px;
+  background: var(--card); border: 1px solid var(--border);
+  color: white; padding: 14px 16px; border-radius: 12px; outline: none;
+}
+.search:focus, textarea:focus { border-color: var(--blue); }
+.project-number { color: var(--gold); font-size: 13px; font-weight: bold; }
+.faq details {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 17px; border-radius: 12px; margin: 10px 0;
+}
+.faq summary { cursor: pointer; font-weight: bold; }
+.faq details p { color: var(--muted); padding-top: 12px; }
+form { max-width: 650px; margin: auto; }
+textarea {
+  width: 100%; min-height: 120px; padding: 14px;
+  background: var(--card); color: white; border: 1px solid var(--border);
+  border-radius: 12px; margin: 12px 0; outline: none; resize: vertical;
+}
+footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; }
+footer p { color: var(--muted); font-size: 13px; }
+.backtop {
+  position: fixed; right: 18px; bottom: 18px;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: var(--card); color: white; padding: 12px; cursor: pointer;
+}
+.empty { display: none; text-align: center; color: var(--muted); padding: 20px; }
+@media(max-width:760px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav { padding: 15px 0; flex-wrap: wrap; }
+  .menu { display: block; background: var(--card); color: white;
+    border: 1px solid var(--border); padding: 8px 12px; border-radius: 8px; }
+  nav { display: none; width: 100%; flex-direction: column; padding: 10px 0; }
+  nav.open { display: flex; }
+  .hero { min-height: 400px; }
+}
+@media(max-width:480px) {
+  .grid { grid-template-columns: 1fr; }
+  section { padding: 55px 0; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">KELAJAK <span>SARDORLARI</span></a>
+    <button class="menu" id="menuBtn" aria-label="Menyuni ochish">☰</button>
+    <nav id="nav">
+      <a href="#about">Biz haqimizda</a>
+      <a href="#leaders">Sardorlar</a>
+      <a href="#duties">Vazifalar</a>
+      <a href="#projects">Loyihalar</a>
+      <a href="#ideas">Takliflar</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <span class="badge">286-MAKTAB · 6-A SINF</span>
+    <h1>Kelajakni biz<br><span>birga quramiz.</span></h1>
+    <p>Biz — tashabbuskor, faol va mas’uliyatli yoshlar jamoasimiz.
+       Maqsadimiz maktab hayotini yanada qiziqarli va mazmunli qilish.</p>
+    <a class="btn" href="#leaders">Jamoa bilan tanishish →</a>
+    <a class="btn secondary" href="#about">Biz haqimizda</a>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-head">
+      <h2>Biz <span class="gold">haqimizda</span></h2>
+      <p>Bir jamoa. Bir maqsad. Katta kelajak.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="icon">🎯</div>
+        <h3>Maqsadimiz</h3>
+        <p>O‘quvchilarni foydali tashabbuslarga jalb qilish va maktab rivojiga hissa qo‘shish.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🤝</div>
+        <h3>Hamkorlik</h3>
+        <p>Bir-birimizni tinglash, hurmat qilish va jamoa bo‘lib ishlash.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🚀</div>
+        <h3>Kelajak</h3>
+        <p>Yangi g‘oyalar, bilim va harakat orqali yaxshi natijalarga erishish.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="leaders">
+  <div class="container">
+    <div class="section-head">
+      <h2>Bizning <span class="gold">sardorlar</span></h2>
+      <p>Har bir yo‘nalishda o‘z vazifasiga ega faol jamoa.</p>
+    </div>
+
+    <input class="search" id="search" type="search"
+      placeholder="🔎 Ism yoki lavozim bo‘yicha qidirish...">
+
+    <div class="grid" id="leaderList">
+      <article class="card leader" data-search="it m yusuf">
+        <div class="leader-top"><div class="avatar">MY</div><div><div class="role">IT SARDORI</div><h3>M. Yusuf</h3></div></div>
+        <p>Texnologiyalar va raqamli tashabbuslar uchun mas’ul.</p>
+      </article>
+      <article class="card leader" data-search="ekologiya ekolog abdulloh">
+        <div class="leader-top"><div class="avatar">A</div><div><div class="role">EKOLOGIYA SARDORI</div><h3>Abdulloh</h3></div></div>
+        <p>Tozalik, tabiatni asrash va ekologik tadbirlarni qo‘llab-quvvatlaydi.</p>
+      </article>
+      <article class="card leader" data-search="sport bobur">
+        <div class="leader-top"><div class="avatar">B</div><div><div class="role">SPORT SARDORI</div><h3>Bobur</h3></div></div>
+        <p>Sport tadbirlari va sog‘lom turmush tashabbuslarini tashkil etishga yordam beradi.</p>
+      </article>
+      <article class="card leader" data-search="madaniyat marjona">
+        <div class="leader-top"><div class="avatar">M</div><div><div class="role">MADANIYAT SARDORI</div><h3>Marjona</h3></div></div>
+        <p>Madaniy tadbirlar, ijodiy chiqishlar va bayramlarda faol qatnashadi.</p>
+      </article>
+      <article class="card leader" data-search="yetakchi maftuna">
+        <div class="leader-top"><div class="avatar">M</div><div><div class="role">YETAKCHI</div><h3>Maftuna</h3></div></div>
+        <p>Jamoani birlashtirish va sardorlar ishini muvofiqlashtirishga ko‘maklashadi.</p>
+      </article>
+      <article class="card leader" data-search="axborot anisa">
+        <div class="leader-top"><div class="avatar">A</div><div><div class="role">AXBOROT SARDORI</div><h3>Anisa</h3></div></div>
+        <p>Maktab yangiliklari va tadbirlar haqida axborot berishga mas’ul.</p>
+      </article>
+      <article class="card leader" data-search="ta'lim talim laylo">
+        <div class="leader-top"><div class="avatar">L</div><div><div class="role">TA’LIM SARDORI</div><h3>Laylo</h3></div></div>
+        <p>O‘qishga qiziqish, bilim almashish va ta’limiy tashabbuslarni qo‘llab-quvvatlaydi.</p>
+      </article>
+    </div>
+    <p class="empty" id="empty">Hech kim topilmadi. Boshqa so‘z bilan qidirib ko‘r.</p>
+  </div>
+</section>
+
+<section id="duties" class="about">
+  <div class="container">
+    <div class="section-head">
+      <h2>Sardorlarning <span class="gold">vazifalari</span></h2>
+      <p>Har bir yo‘nalish maktab hayotida muhim o‘rin tutadi.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><div class="icon">💻</div><h3>IT</h3><p>Raqamli savodxonlik, texnologiyalar va IT g‘oyalari.</p></article>
+      <article class="card"><div class="icon">📚</div><h3>Ta’lim</h3><p>Bilim olish, fanlarga qiziqish va o‘zaro yordam.</p></article>
+      <article class="card"><div class="icon">🎭</div><h3>Madaniyat</h3><p>Bayramlar, ijodiy tadbirlar va madaniyat.</p></article>
+      <article class="card"><div class="icon">⚽</div><h3>Sport</h3><p>Sport o‘yinlari, musobaqalar va faollik.</p></article>
+      <article class="card"><div class="icon">🌱</div><h3>Ekologiya</h3><p>Tozalik, yashil hududlar va tabiatni asrash.</p></article>
+      <article class="card"><div class="icon">📢</div><h3>Axborot</h3><p>Yangiliklar va maktab tadbirlari haqida xabar berish.</p></article>
+      <article class="card"><div class="icon">⭐</div><h3>Yetakchilik</h3><p>Jamoaviy ish, tashabbus va mas’uliyat.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <h2>Bizning <span class="gold">loyihalar</span></h2>
+      <p>Yangi g‘oyalar bilan maktabimizni yanada rivojlantiramiz.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><span class="project-number">LOYIHA 01</span><div class="icon">🌿</div><h3>Toza maktab</h3><p>Maktab hududini ozoda saqlash va ekologik madaniyatni oshirish.</p></article>
+      <article class="card"><span class="project-number">LOYIHA 02</span><div class="icon">📖</div><h3>Bilim ulashamiz</h3><p>O‘quvchilar o‘rtasida bilim almashish va foydali mashg‘ulotlar.</p></article>
+      <article class="card"><span class="project-number">LOYIHA 03</span><div class="icon">🏆</div><h3>Faol sinf</h3><p>Sport, madaniyat va ijodiy tadbirlarda jamoa bo‘lib qatnashish.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="about faq" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <h2>Ko‘p beriladigan <span class="gold">savollar</span></h2>
+    </div>
+    <details><summary>Kelajak Sardorlari nima?</summary><p>Bu 286-maktab 6-A sinfidagi sardorlar va ularning faoliyati haqida ma’lumot beruvchi sayt.</p></details>
+    <details><summary>Sardorlarning vazifasi nima?</summary><p>Har bir sardor o‘z yo‘nalishidagi tashabbuslarni qo‘llab-quvvatlaydi va jamoa bilan hamkorlik qiladi.</p></details>
+    <details><summary>Yangi g‘oya taklif qilsam bo‘ladimi?</summary><p>Ha! Quyidagi taklif bo‘limidan g‘oyangni yozib, ulashishing mumkin.</p></details>
+  </div>
+</section>
+
+<section id="ideas">
+  <div class="container">
+    <div class="section-head">
+      <h2>O‘z <span class="gold">g‘oyangni</span> ulash</h2>
+      <p>Maktab uchun foydali taklifing bormi? Yozib qoldir.</p>
+    </div>
+    <form id="ideaForm">
+      <label for="idea">Taklifing</label>
+      <textarea id="idea" required maxlength="1000" placeholder="Masalan: maktabda kitob almashish kuni tashkil qilaylik..."></textarea>
+      <button class="btn" type="submit">Taklifni ulashish ↗</button>
+      <p id="formMessage" style="color:var(--muted);margin-top:12px;font-size:13px"></p>
+    </form>
+    <p style="text-align:center;color:var(--muted);font-size:12px;margin-top:18px">
+      Eslatma: bu demo versiyada takliflar serverga saqlanmaydi.
+    </p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <a class="logo" href="#home">KELAJAK <span>SARDORLARI</span></a>
+    <p style="margin-top:10px">286-maktab · 6-A sinf</p>
+    <p style="margin-top:5px">Birgalikda — katta natijalar.</p>
+    <p style="margin-top:14px">© <span id="year"></span> Kelajak Sardorlari</p>
+  </div>
+</footer>
+
+<button class="backtop" id="backtop" aria-label="Yuqoriga qaytish">↑</button>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
+
+menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => nav.classList.remove('open'));
+});
+
+const search = document.getElementById('search');
+const leaders = [...document.querySelectorAll('.leader')];
+const empty = document.getElementById('empty');
+
+search.addEventListener('input', () => {
+  const query = search.value.toLocaleLowerCase('uz').trim();
+  let count = 0;
+  leaders.forEach(leader => {
+    const text = (leader.innerText + ' ' + leader.dataset.search).toLocaleLowerCase('uz');
+    const matches = text.includes(query);
+    leader.style.display = matches ? '' : 'none';
+    if (matches) count++;
+  });
+  empty.style.display = count ? 'none' : 'block';
+});
+
+document.getElementById('ideaForm').addEventListener('submit', async event => {
+  event.preventDefault();
+  const idea = document.getElementById('idea').value.trim();
+  if (!idea) return;
+  const message = 'Kelajak Sardorlari uchun taklif:\n' + idea;
+  const status = document.getElementById('formMessage');
+
+  if (navigator.share) {
+    try {
+      await navigator.share({title: 'Kelajak Sardorlari', text: message});
+      status.textContent = 'Ulashish oynasi ochildi.';
+    } catch (error) {
+      if (error.name !== 'AbortError') status.textContent = 'Ulashish amalga oshmadi.';
+    }
+  } else if (navigator.clipboard) {
+    try {
+      await navigator.clipboard.writeText(message);
+      status.textContent = 'Taklif nusxalandi. Uni xabar orqali yuborishing mumkin.';
+    } catch {
+      status.textContent = 'Taklif: ' + idea;
+    }
+  } else {
+    status.textContent = 'Taklif: ' + idea;
+  }
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('backtop').addEventListener('click', () => {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+});
+</script>
+</body>
+</html>
